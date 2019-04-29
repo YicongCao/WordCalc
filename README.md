@@ -31,7 +31,7 @@ AI Lab 开源的这份数据，重达 6GB，解压后有 16GB。使用这份数�
 
 怎样体会 Word2Vec 的数学含义呢？我们想象一个三位坐标系，每个点代表一个单词，我们取两个点画一条有方向的线段，然后任取空间内另外一点，叠加上刚才的平行线。
 
-![word2vec](img/word2vec.png)
+![word2vec](https://ws3.sinaimg.cn/large/006tNc79gy1g2ge6wwm5vj318g0o742k.jpg)
 
 看到了吗？国王(king) -> 皇后(queen) 和 男人(man) -> 女人(woman) 是平行且等长的，也就意味着：
 
@@ -51,7 +51,7 @@ AI Lab 开源的这份数据，重达 6GB，解压后有 16GB。使用这份数�
 
 上面提出的“主要困难”，其实都是真正上手实践的时候遇到的问题。
 
-首先是内存问题，起初我以为 6核 16GB 内存的 MacBook 能 hold 的住 16GB 大小的数据集。后来才知道我想多了，系统保留2GB、Chrome吃掉2GB、VSCode吃掉4GB，剩下的哪够 16GB 啊……再加上 256GB 的存储，剩余空间少的可怜，数据加载到一半，磁盘剩余空间 1MB 都不到了——虚拟内存都无从分配。mem alloc failed，程序崩溃。
+首先是内存问题，起初我以为 6 核 16GB 内存的 MacBook 能 hold 的住 16GB 大小的数据集。后来才知道我想多了，系统保留 2GB、Chrome 吃掉 2GB、VSCode 吃掉 4GB，剩下的哪够 16GB 啊……再加上 256GB 的存储，剩余空间少的可怜，数据加载到一半，磁盘剩余空间 1MB 都不到了——虚拟内存都无从分配。mem alloc failed，程序崩溃。
 
 然后打算用一台 M10 机型来加载模型，M10 机器内存够大，可以尽情浪费。此时脑海中回想起环境配置的痛苦，直觉告诉我——如果不用 docker 你就等着一下午浪费在环境配置上吧～
 
@@ -59,21 +59,17 @@ AI Lab 开源的这份数据，重达 6GB，解压后有 16GB。使用这份数�
 
 用 `annoy` 使用二叉树构建 200 维的高维空间，可以通过牺牲精度来换取比暴力搜索更快的搜索速度。这样复杂度就由 O(n) 减少到 O(logN) 了。
 
-![二叉树](img/二叉树.png)
+![二叉树](https://ws3.sinaimg.cn/large/006tNc79gy1g2ge6xvoawj30sg0b840s.jpg)
 
 最后是要一直盯着控制台等结果的问题，也许看一眼、看两眼、看十眼都还在计算中，看看朋友圈、刷刷某 Hub，再看一眼发现两个钟前就算完了=。= 这不就一下午过去了吗？过分了过分了，我可是很热爱工作的人啊！
 
 解决这个问题，当然是使用 bot 来推送整个训练过程中关键步骤的结果、和每次运算的日志。
 
-![Bot推送步骤结果](img/状态.png)
+![Bot推送步骤结果](https://ws2.sinaimg.cn/large/006tNc79gy1g2ge6z983zj30hs0vk784.jpg)
 
 ## 代码简析
 
 良好的文档、必要的注释和简单到**开箱即用**的导入方法，应该是程序员的基本素养！不要让别人在试图复用你代码的时候，淹没在一堆报错信息的海洋里：）
-
-| 代码 Repo 地址 | <https://git.code.oa.com/pixelcao/WordCalc> |
-| -------------- | ------------------------------------------- |
-| 环境要求       | 仅需装有 docker 即可                        |
 
 ```bash
 # 编译代码、生成镜像
@@ -153,7 +149,7 @@ class WordCalc:
 
 这里给 IEG 的蓝盾容器平台做个广告，容器化之后使用蓝盾 k8s 部署上云，重启、扩容、调度服务变得很简单。
 
-![k8s x docker](img/蓝盾bcs.png)
+![k8s x docker](https://ws1.sinaimg.cn/large/006tNc79gy1g2ge71kp0xj30xa0oigoz.jpg)
 
 ## AI 之美
 
@@ -165,11 +161,11 @@ class WordCalc:
 
 作为鹅厂一员，看到公司开源的这份数据，是有那么一丢丢自豪感的。也许在你想不到的地方，就有一枚大学生利用这份数据写出了毕业论文，也许，更为珍贵地——有人受此启发，创造出了更好的语言模型，指出了 NLP 下一个进步的方向，这才是我们的目标和责任所在。
 
-![WordCalc](img/拼图1.png)
+![WordCalc](https://ws2.sinaimg.cn/large/006tNc79gy1g2ge732777j30y00u0466.jpg)
 
-![WordCalc](img/拼图2.png)
+![WordCalc](https://ws3.sinaimg.cn/large/006tNc79gy1g2ge73z6v6j30y00u07ab.jpg)
 
-![WordCalc](img/拼图3.png)
+![WordCalc](https://ws3.sinaimg.cn/large/006tNc79gy1g2ge77esbdj30y00u0aft.jpg)
 
 AI Lab 的这份词向量数据很赞，`马斯克+漫威=钢铁侠`、`北京-中国+日本=东京`，甚至还有 `共产主义-中国+美国=法西斯主义` 这样提前预定子弹名单的数据，这些都是无监督训练取得的出色成果。
 
@@ -177,14 +173,14 @@ AI Lab 的这份词向量数据很赞，`马斯克+漫威=钢铁侠`、`北京-�
 
 之前二葱还做了一个“夸夸机器人”，同样是简单的 TF-IDF 模型、基于 `gensim` 做的句子相似度计算，加上从豆瓣夸夸小组里爬到的主题/回帖。放到群里至今，二葱已经成为人人喊打的目标=。=
 
-![WordCalc](img/夸夸机器人.png)
+![WordCalc](https://ws4.sinaimg.cn/large/006tNc79gy1g2ge78x8d5j30gi0j7q4q.jpg)
 
 看样子还有些 good case，对吧？别急……
 
-![WordCalc](img/夸夸翻车2.png)
+![WordCalc](https://ws1.sinaimg.cn/large/006tNc79gy1g2ge7cd1dhj30hf0hvmyl.jpg)
 
-![WordCalc](img/夸夸翻车1.png)
+![WordCalc](https://ws3.sinaimg.cn/large/006tNc79gy1g2ge7gjo5kj30h80gtmyb.jpg)
 
-![WordCalc](img/夸夸翻车3.png)
+![WordCalc](https://ws4.sinaimg.cn/large/006tNc79gy1g2ge7ep6moj30h80hmq4z.jpg)
 
 路漫漫其修远啊……二葱激动的拍打着自己的轮椅说道
